@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('translator')->group(function () {
+    Route::get('/', function () {
+       return view('translator.index');
+    })->name('translator.index');
+
+    Route::get('/text', function () {
+        return view('translator.text');
+    })->name('translator.text');
+
+    Route::get('/ducument', function () {
+        return view('translator.document');
+    })->name('translator.document');
+
+    Route::get('/dictionary', function () {
+        return view('translator.dictionary');
+    })->name('translator.dictionary');
+});
