@@ -17,16 +17,6 @@
 
     <div class="row">
         <div class="col-12">
-            <h1>Tradutor</h1>
-        </div>
-    </div>
-
-    <a href="{{route('translator.text')}}">Traduzir textos</a>
-    <a href="{{route('translator.document')}}">Traduzir documentos</a>
-    <a href="{{route('translator.dictionary')}}">Dicionário</a>
-
-    <div class="row">
-        <div class="col-12">
             <h1>Sobre esse projeto:</h1>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis lacus est, eget mollis urna pharetra quis. Pellentesque placerat a nibh at maximus. Sed fermentum egestas leo vitae viverra. Proin vehicula orci mi, eu tristique mi scelerisque vel. Ut ultricies mi vitae cursus fermentum. Donec quis accumsan metus. Nam consectetur venenatis ultrices. Quisque pretium in dolor ut iaculis.

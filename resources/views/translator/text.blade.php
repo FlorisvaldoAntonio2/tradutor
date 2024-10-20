@@ -15,57 +15,62 @@
         @include('partials.errors')
     @endif
 
-    <div class="row">
-        <div class="col-12">
-            <h1>Tradutor de texto</h1>
-        </div>
+
+
+    <div class="row mt-5">
+
+        <form action="#" method="POST" id="formTranslation">
+
+            <div class="row mb-1">
+                <div class="col-sm-12 col-md-6">
+                    <label for="languageFrom" class="form-label">Idioma origem:</label>
+            
+                    <select name="languageFrom" id="languageFrom" class="form-select">
+                        <option value="-1" selected disabled>Selecione o idioma do seu texto</option>
+                        @foreach ($languages as $key =>$language)
+                        @if ($key == 'pt')
+                        <option value="{{$key}}" selected>{{ $language->name }}</option>
+                    @else
+                        <option value="{{$key}}">{{ $language->name }}</option>
+                    @endif
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <label for="languageTo" class="form-label">Idioma tradução:</label>
+
+                    <select name="languageTo" id="languageTo" class="form-select">
+                        <option value="-1" selected disabled>Selecione o idioma do seu texto</option>
+                        @foreach ($languages as $key =>$language)
+                            @if ($key == 'en')
+                                <option value="{{$key}}" selected>{{ $language->name }}</option>
+                            @else
+                                <option value="{{$key}}">{{ $language->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <textarea name="txtfrom" id="txtfrom" cols="30" rows="10" placeholder="Seu texto a ser traduzido!!!" required class="form-control"></textarea>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <textarea name="txtTo" id="txtTo" cols="30" rows="10" placeholder="Seu texto traduzido!!!" readonly class="form-control"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">
+                <span class="spinner-grow spinner-grow-sm" aria-hidden="true" hidden></span>
+                <span role="andamento" hidden>Traduzindo...</span>
+                <span role="pronto">Traduzir!</span>
+            </button>
+
+        </form>
+
     </div>
-
-    <div class="row">
-        <div class="col-12">
-            <h1>Sobre esse projeto:</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis lacus est, eget mollis urna pharetra quis. Pellentesque placerat a nibh at maximus. Sed fermentum egestas leo vitae viverra. Proin vehicula orci mi, eu tristique mi scelerisque vel. Ut ultricies mi vitae cursus fermentum. Donec quis accumsan metus. Nam consectetur venenatis ultrices. Quisque pretium in dolor ut iaculis.
-                t. Mauris efficitur iaculis arcu, vitae
-            </p>
-        </div>
-    </div>
-
-    <form action="#" method="POST" id="formTranslation">
-
-        <label for="languageFrom">Idioma origem:</label>
-        
-        <select name="languageFrom" id="languageFrom">
-            <option value="-1" selected disabled>Selecione o idioma do seu texto</option>
-            @foreach ($languages as $key =>$language)
-            @if ($key == 'pt')
-            <option value="{{$key}}" selected>{{ $language->name }}</option>
-        @else
-            <option value="{{$key}}">{{ $language->name }}</option>
-        @endif
-            @endforeach
-        </select>
-
-        <textarea name="txtfrom" id="txtfrom" cols="30" rows="10" placeholder="Seu texto a ser traduzido!!!"></textarea>
-
-        <label for="languageTo">Idioma tradução:</label>
-
-        <select name="languageTo" id="languageTo">
-            <option value="-1" selected disabled>Selecione o idioma do seu texto</option>
-            @foreach ($languages as $key =>$language)
-                @if ($key == 'en')
-                    <option value="{{$key}}" selected>{{ $language->name }}</option>
-                @else
-                    <option value="{{$key}}">{{ $language->name }}</option>
-                @endif
-            @endforeach
-        </select>
-
-        <textarea name="txtTo" id="txtTo" cols="30" rows="10" placeholder="Seu texto traduzido!!!"></textarea>
-
-        <button type="submit">Traduzir</button>
-
-    </form>
     
 @endsection
 
@@ -76,6 +81,8 @@
 
         formTranslation.addEventListener('submit', function(event){
             event.preventDefault();
+
+            toogleSpinner(formTranslation);
         
             let url = "{{ env('AZURE_URL') }}";
             const clientSecret = "{{ env('AZURE_CLIENT_SECRET') }}";
@@ -107,12 +114,24 @@
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                console.log(data[0].translations[0].text);
                 txtTo.value = data[0].translations[0].text;
+                toogleSpinner(formTranslation);
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => {
+                toogleSpinner(formTranslation);
+                console.error('Error:', error);
+            });
         });
     })
+
+    function toogleSpinner(button){
+        let spinner = button.querySelector('.spinner-grow');
+        let statusLoading = button.querySelector('[role="andamento"]');
+        let statusReady = button.querySelector('[role="pronto"]');
+
+        spinner.hidden = !spinner.hidden;
+        statusLoading.hidden = !statusLoading.hidden;
+        statusReady.hidden = !statusReady.hidden;
+    }
 
 </script>
