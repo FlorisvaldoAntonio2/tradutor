@@ -20,7 +20,7 @@
     <div class="row mt-5">
 
         <form action="#" method="POST" id="formTranslation">
-
+            @csrf
             <div class="row mb-1">
                 <div class="col-sm-12 col-md-6">
                     <label for="languageFrom" class="form-label">Idioma origem:</label>

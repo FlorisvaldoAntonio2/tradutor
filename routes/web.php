@@ -25,6 +25,8 @@ Route::prefix('translator')->group(function () {
 
     Route::controller(TranslatorController::class)->group(function () {
         Route::get('/text', 'getText')->name('translator.text');
+
+        Route::post('/text', 'translateText')->name('translator.traslate.text');
     });
 
     Route::get('/ducument', function () {

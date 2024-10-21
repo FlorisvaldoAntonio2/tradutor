@@ -8,30 +8,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         toogleSpinner(formTranslation);
     
-        let url = "{{ env('AZURE_URL') }}";
-        const clientSecret = "{{ env('AZURE_CLIENT_SECRET') }}";
-        const region = "{{ env('AZURE_REGION') }}";
         let languageFrom = document.getElementById('languageFrom').value;
         let languageTo = document.getElementById('languageTo').value;
         let txtfrom = document.getElementById('txtfrom').value;
         let txtTo = document.getElementById('txtTo'); //elemento
 
-        url += '/translate?api-version=3.0&from=' + languageFrom + '&to=' + languageTo;
-       
-        //cria um objeto data
-        let data =
-        [
-            {"Text": txtfrom}
-        ];
+        let data = {
+            'text': txtfrom,
+            'from': languageFrom,
+            'to': languageTo
+        }
 
         //faz uma requisição fetch
-        fetch(url, {
+        fetch('/translator/text', {
             method: 'POST',
             headers: {
                 'accept': 'application/json',
-                'Ocp-Apim-Subscription-Key': clientSecret,
-                'Ocp-Apim-Subscription-Region': region,
-                'Content-Type': 'application/json; charset=UTF-8'
+                'Content-Type': 'application/json; charset=UTF-8',
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
             },
             body: JSON.stringify(data)
         })
