@@ -4,7 +4,9 @@
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 import * as bootstrap from 'bootstrap';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import axios from 'axios';
+
 window.axios = axios;
 window.bootstrap = bootstrap;
 

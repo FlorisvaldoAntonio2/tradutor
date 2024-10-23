@@ -53,24 +53,29 @@
 
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <textarea name="txtfrom" id="txtfrom" cols="30" rows="10" placeholder="Seu texto a ser traduzido!!!" required class="form-control"></textarea>
+                    <textarea name="txtfrom" id="txtfrom" cols="30" rows="8" placeholder="Seu texto a ser traduzido!!!" required class="form-control"></textarea>
                 </div>
                 <div class="col-sm-12 col-md-6">
-                    <textarea name="txtTo" id="txtTo" cols="30" rows="10" placeholder="Seu texto traduzido!!!" readonly class="form-control"></textarea>
+                    <textarea name="txtTo" id="txtTo" cols="30" rows="8" placeholder="Seu texto traduzido!!!" readonly class="form-control"></textarea>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">
-                <span class="spinner-grow spinner-grow-sm" aria-hidden="true" hidden></span>
-                <span role="andamento" hidden>Traduzindo...</span>
-                <span role="pronto">Traduzir!</span>
-            </button>
+            <div class="row justify-content-between">
+                <div class="col-3 col-md-6 mt-3">
+                    <button type="submit" class="btn btn-primary">
+                        <span class="spinner-grow spinner-grow-sm" aria-hidden="true" hidden></span>
+                        <span role="andamento" hidden>Traduzindo...</span>
+                        <span role="pronto">Traduzir! <i class="bi bi-translate"></i></span>
+                    </button>
+                </div>
+                <div class="col-3 col-md-6 mt-3">
+                    <button class="btn btn-primary float-end" type="button" data-bs-toggle="offcanvas" data-bs-target="#historical" aria-controls="offcanvasRight">Histórico <i class="bi bi-clock-history"></i></button> 
+                </div>   
+            </div>
 
         </form>
 
     </div>
-
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#historical" aria-controls="offcanvasRight">Histórico</button>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="historical" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
