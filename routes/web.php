@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TranslatorController;
+use App\Http\Controllers\TranslationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +23,7 @@ Route::prefix('translator')->group(function () {
        return view('translator.index');
     })->name('translator.index');
 
-    Route::controller(TranslatorController::class)->group(function () {
+    Route::controller(TranslationController::class)->group(function () {
         Route::get('/text', 'getText')->name('translator.text');
 
         Route::post('/text', 'translateText')->name('translator.traslate.text');

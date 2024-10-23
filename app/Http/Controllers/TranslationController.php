@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TranslatorRequest;
+use App\Events\TextTranslationEvent;
+use App\Http\Requests\TranslationRequest;
+use App\Models\Translation;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Facades\Http;
 
-class TranslatorController extends Controller
+class TranslationController extends Controller
 {
     public function getText() : View|Factory
     {
@@ -17,7 +19,7 @@ class TranslatorController extends Controller
         return view('translator.text', compact('languages'));
     }
 
-    public function translateText(TranslatorRequest $request) : JsonResponse {
+    public function translateText(TranslationRequest $request) : JsonResponse {
         try {
             $data = $request->validated();
             $url = env('AZURE_URL') . '/translate?api-version=3.0&from=' . $data['from'] . '&to=' . $data['to'];
@@ -31,6 +33,19 @@ class TranslatorController extends Controller
                     'text' => $data['text']
                 ]
             ]);
+
+            $translatedText = $response->json();
+            $translatedText = $translatedText[0]['translations'][0]['text'];
+
+            event(new TextTranslationEvent(
+                new Translation([
+                    'text_input' => $data['text'],
+                    'text_output' => $translatedText,
+                    'language_from' => $data['from'],
+                    'language_to' => $data['to'],
+                    'type' => 'text'
+                ])
+            ));
 
             return response()->json($response->json());
         } catch (\Exception $e) {
