@@ -15,8 +15,6 @@
         @include('partials.errors')
     @endif
 
-
-
     <div class="row mt-5">
 
         <form action="#" method="POST" id="formTranslation">
@@ -70,6 +68,18 @@
 
         </form>
 
+    </div>
+
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#historical" aria-controls="offcanvasRight">Histórico</button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="historical" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h4  id="offcanvasRightLabel">Histórico</h4>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            @include('partials.historical', ['translations' => $translations])
+        </div>
     </div>
     
     @vite(['resources/js/translator/text.js'])

@@ -24,9 +24,18 @@ Route::prefix('translator')->group(function () {
     })->name('translator.index');
 
     Route::controller(TranslationController::class)->group(function () {
+
+        //text
+
         Route::get('/text', 'getText')->name('translator.text');
 
-        Route::post('/text', 'translateText')->name('translator.traslate.text');
+        Route::post('/text', 'translateText')->name('translator.traslateText');
+
+        Route::get('/text/historical', 'getAllTranslations')->name('translation.getAllTranslation');
+
+        //document
+
+        //dictionary
     });
 
     Route::get('/ducument', function () {
