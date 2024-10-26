@@ -1,2 +1,5 @@
 *
+!/icons
+!/icons/*.png
 !.gitignore
+!fluxo-tradutor.jpg

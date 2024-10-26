@@ -15,17 +15,148 @@
         @include('partials.errors')
     @endif
 
-    <div class="row">
-        <div class="col-12">
-            <h1>Sobre esse projeto:</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis lacus est, eget mollis urna pharetra quis. Pellentesque placerat a nibh at maximus. Sed fermentum egestas leo vitae viverra. Proin vehicula orci mi, eu tristique mi scelerisque vel. Ut ultricies mi vitae cursus fermentum. Donec quis accumsan metus. Nam consectetur venenatis ultrices. Quisque pretium in dolor ut iaculis.
-                
-                In euismod sem metus, eget cursus eros pellentesque eu. Proin ultrices est ac lorem hendrerit, a convallis est pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque efficitur tortor lectus, a laoreet nulla placerat quis. Nulla sed vehicula sapien. Cras sit amet odio urna. Nulla euismod massa in semper elementum. Nulla tincidunt nisl vel porttitor luctus. Sed ligula lorem, fringilla sed venenatis euismod, ornare sit amet arcu. Mauris fermentum scelerisque lorem ac aliquet. Donec fermentum sit amet dui et condimentum. Quisque fringilla egestas ante vitae tincidunt.
-                
-                Donec consequat, quam sit amet tincidunt pretium, dolor nisi malesuada nulla, eu volutpat enim ex ac purus. Vestibulum aliquam ac diam non aliquet. Pellentesque erat purus, varius luctus odio quis, consectetur aliquam dolor. Donec lacinia placerat facilisis. Nunc dictum auctor vehicula. In eu pulvinar dui. Donec sed egestas lorem. Mauris vulputate risus non justo blandit laoreet.
-                
-                Mauris quis ipsum nec diam tempus ultricies. Fusce sit amet mollis velit. Mauris efficitur iaculis arcu, vitae</p>
+    <div class="row mt-3">
+        <div class="col-12 col-md-8">
+            <div class="row">
+                <div class="col-12">
+
+                    <h2 class="text-center text-md-start">Sobre esse projeto:</h2>
+
+                    <p>
+                    Este projeto foi desenvolvido com o objetivo de aplicar alguns conhecimentos adquiridos ao longo da
+                    minha trajetória acadêmica e profissional. Ele consiste em um sistema web robusto, capaz de traduzir
+                    palavras, textos e documentos, integrando o serviço Microsoft Azure Translator para garantir
+                    traduções precisas e rápidas.
+                    </p>
+                </div>
+            </div>
+
+            <h2 class="text-center text-md-start">Fluxo do projeto:</h2>
+
+            <div class="row justify-content-center">
+                <div class="col-10 col-md-8">
+
+                    <img class="img-fluid rounded" src="{{ asset('storage/fluxo-tradutor.jpg') }}"  alt="fluxo-projeto">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 mt-3 mt-md-none">
+
+            <h4 class="text-center text-md-start">Principais Tecnologias:</h4>
+
+            <ul>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Laravel 10</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-laravel.png') }}" height="30px" alt="logo-laravel">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>MySQL 8.0</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-mysql.png') }}" height="30px" alt="logo-mysql">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Templates Blade (nativo do Laravel)</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-laravel.png') }}" height="30px" alt="logo-laravel">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Bootstrap 5.3</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-bootstrap.png') }}" height="30px" alt="logo-bootstrap">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Docker</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-docker.png') }}" height="30px" alt="logo-docker">
+                        </div>
+                    </div> 
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Docker Compose</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-docker.png') }}" height="30px" alt="logo-docker">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Git</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-git.png') }}" height="30px" alt="logo-git">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span> GitHub</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-github.png') }}" height="30px" alt="logo-github">
+                        </div>
+                    </div>
+                   
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Microsoft Azure Translator</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-azure.png') }}" height="30px" alt="logo-azure">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Vite</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-vite.png') }}" height="30px" alt="logo-vite">
+                        </div>
+                    </div>                    
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-8">
+                            <span>Rest API</span>
+                        </div>
+                        <div class="col-4">
+                            <img class="float-end float-md-none" src="{{ asset('storage/icons/icon-rest-api.png') }}" height="30px" alt="logo-api">
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
     
