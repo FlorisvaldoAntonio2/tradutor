@@ -16,8 +16,7 @@ class TranslationController extends Controller
     {
         $languages = Http::get('https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation')->object();
         $languages = $languages->translation;
-        $translations = Translation::all();
-        return view('translator.text', compact('languages', 'translations'));
+        return view('translator.text', compact('languages'));
     }
 
     public function translateText(TranslationRequest $request) : JsonResponse {
@@ -58,7 +57,7 @@ class TranslationController extends Controller
     }
 
     public function getAllTranslations() : JsonResponse {
-        $translations = Translation::all();
+        $translations = Translation::all()->sortByDesc('created_at')->values();
         return response()->json($translations);
     }
 }

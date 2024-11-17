@@ -69,7 +69,7 @@
                     </button>
                 </div>
                 <div class="col-3 col-md-6 mt-3">
-                    <button class="btn btn-primary float-end" type="button" data-bs-toggle="offcanvas" data-bs-target="#historical" aria-controls="offcanvasRight">Histórico <i class="bi bi-clock-history"></i></button> 
+                    <button class="btn btn-primary float-end" type="button" aria-controls="offcanvasRight" id="btnHistorical">Histórico <i class="bi bi-clock-history"></i></button> 
                 </div>   
             </div>
 
@@ -83,9 +83,10 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            @include('partials.historical', ['translations' => $translations])
+            {{-- Histórico --}}
         </div>
     </div>
     
     @vite(['resources/js/translator/text.js'])
+    @vite('resources/js/historical/historical.js')
 @endsection
