@@ -16,7 +16,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs justify-content-center justify-content-md-start">
               <li class="nav-item">
                   <a class="nav-link {{ Request::is('translator') ? 'active' : '' }}" aria-current="page" href="{{ route('translator.index') }}">Sobre</a>
               </li>
@@ -24,7 +24,7 @@
                   <a class="nav-link {{ Request::is('translator/text') ? 'active' : '' }}" href="{{ route('translator.text') }}">Textos</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link disabled {{ Request::is('translator/ducument') ? 'active' : '' }}" href="{{ route('translator.document') }}">Documentos</a>
+                  <a class="nav-link disabled {{ Request::is('translator/document') ? 'active' : '' }}" href="{{ route('translator.document') }}">Documentos</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link disabled {{ Request::is('translator/dictionary') ? 'active' : '' }}" href="{{ route('translator.dictionary') }}">Dicionário</a>
