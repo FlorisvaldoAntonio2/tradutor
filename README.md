@@ -96,6 +96,16 @@ Gerar link simbólico entre o storage e a pasta public
 php artisan storage:link
 ```
 
+Instalar pacotes JS
+```sh
+npm install
+```
+
+Buildar
+```sh
+npm run build
+```
+
 
 Acesse o projeto.
 
