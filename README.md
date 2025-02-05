@@ -1,66 +1,104 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Translator
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este projeto é uma aplicação prática que reflete conceitos aprendidos ao longo da minha trajetória como estudante e desenvolvedor. Desenvolvido com o poderoso framework PHP Laravel, o sistema utiliza o serviço de tradução da Microsoft Azure para fornecer traduções rápidas e precisas entre diversos idiomas.
 
-## About Laravel
+Atualmente, o foco está na tradução de frases, com suporte para uma ampla variedade de idiomas. Além disso, planejo expandir suas funcionalidades para incluir a tradução de documentos e/ou imagens no futuro. Todas as traduções realizadas são armazenadas em um banco de dados local, permitindo consulta e registro histórico de maneira eficiente.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**A imagem a seguir apresenta uma exemplificação simplificada do projeto:**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![Logo do Projeto](./storage/app/public/fluxo-tradutor.jpg)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Algumas das tecnologias utilizadas:**
 
-## Learning Laravel
+- Laravel 10
+- Mysql 8
+- Templates Blade (nativo do Laravel)
+- Bootstrap 5.3
+- Docker e Docker Compose
+- Git e GitHUb
+- Microsoft Azure Translator
+- Vite
+- Rest Api
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Instalação:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Passo a passo
+Clone Repositório
+```sh
+git clone https://github.com/FlorisvaldoAntonio2/tradutor.git
+```
+```sh
+cd tradutor
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+Copiar o arquivo .env
+```sh
+cp .env.example .env
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+Atualize as variáveis de ambiente do arquivo .env
+```dosini
+APP_NAME="Translator"
+APP_URL={URL_DO_PROJETO}
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=translator
+DB_USERNAME={NOME_DO_USUARIO}
+DB_PASSWORD={SENHA_DO_USUARIO}
 
-## Contributing
+AZURE_CLIENT_SECRET={SEU-SEGREDO}
+AZURE_REGION={SUA-REGIÃO}
+AZURE_URL={URL-API-AZURE}
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
 
-## Code of Conduct
+Suba os containers do projeto
+```sh
+docker-compose up -d
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+ou 
 
-## Security Vulnerabilities
+Suba os containers do projeto rebuildando
+```sh
+docker-compose up -d --build
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+Acesse o container app
+```sh
+docker-compose exec app bash
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Instale as dependências do projeto
+```sh
+composer install
+```
+
+
+Gere a key do projeto Laravel
+```sh
+php artisan key:generate
+```
+
+Gerar as tabelas do banco de dados
+```sh
+php artisan migrate
+```
+
+Gerar link simbólico entre o storage e a pasta public
+```sh
+php artisan storage:link
+```
+
+
+Acesse o projeto.
+
+
+
+
